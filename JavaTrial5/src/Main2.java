@@ -2,7 +2,7 @@
 public class Main2 {
 
 	public static void main(String[] args) {
-		int number = 2;
+		int number = -5;
 		boolean isItPrime = true;
 
 		for (int i = 2; i < number; i++) {
