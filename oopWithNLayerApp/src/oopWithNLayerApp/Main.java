@@ -1,6 +1,10 @@
 package oopWithNLayerApp;
 
 import oopWithNLayerApp.business.ProductManager;
+import oopWithNLayerApp.core.logging.DatabaseLogger;
+import oopWithNLayerApp.core.logging.FileLogger;
+import oopWithNLayerApp.core.logging.Logger;
+import oopWithNLayerApp.core.logging.MailLogger;
 import oopWithNLayerApp.dataAccess.HibernateProductDao;
 import oopWithNLayerApp.dataAccess.JdbcProductDao;
 import oopWithNLayerApp.entities.Product;
@@ -11,7 +15,11 @@ public class Main {
 
 		Product product1 = new Product(1, "Poco M3", 5000);
 
-		ProductManager productManager = new ProductManager(new HibernateProductDao());
+		// Logger[] loggers = { new MailLogger(), new DatabaseLogger() };
+		Logger[] loggers = { new MailLogger(), new DatabaseLogger(), new FileLogger() };
+		// İstediğin kadar log türü gönder
+
+		ProductManager productManager = new ProductManager(new HibernateProductDao(), loggers);
 		productManager.add(product1);
 
 	}
