@@ -5,7 +5,6 @@ import oopWithNLayerApp.core.logging.DatabaseLogger;
 import oopWithNLayerApp.core.logging.FileLogger;
 import oopWithNLayerApp.core.logging.Logger;
 import oopWithNLayerApp.core.logging.MailLogger;
-import oopWithNLayerApp.dataAccess.HibernateProductDao;
 import oopWithNLayerApp.dataAccess.JdbcProductDao;
 import oopWithNLayerApp.entities.Product;
 
@@ -22,7 +21,7 @@ public class Main {
 
 		ProductManager productManager = new ProductManager(new JdbcProductDao(), loggers);
 		productManager.add(product1);
-		// productManager.add(product2);//Product name already exist
+		productManager.add(product2);//Product name already exist
 
 	}
 
